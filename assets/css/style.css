@@ -18,12 +18,20 @@ header, footer {
     margin-bottom:2rem;
     }
 
+.h2projects {
+    font-size: 1.5em;
+    text-align: left;
+    color: #44475a;
+    }  
     
 h2 {
     font-size: 1.5em;
     text-align: center;
     color: #ff79c6;
     }    
+
+
+
 
 nav a {
     margin:0 .5rem; 
@@ -78,6 +86,14 @@ nav a:exp {
     width: 33px !important;
     height: 33px !important;
     margin: 0 10px;
+}
+
+.icon-img {
+    width: 25px !important;
+    height: 25px !important;
+    vertical-align: top;
+   
+
 }
 
 h1.openfw {
