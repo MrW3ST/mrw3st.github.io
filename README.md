@@ -18,6 +18,7 @@ mrw3st.github.io/
 │   │   └─ email-envelope-white-icon.svg
 │   │   └─ github-mark-white.svg
 │   │   └─ InBug-White.png
+│   │   └─ favicon.png
 │   └─ js/
 │       └─         
 │
