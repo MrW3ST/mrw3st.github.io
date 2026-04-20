@@ -19,8 +19,8 @@
     --text-muted:   #282a36;
     --h2-color:     #ff79c6;
     --h2p-color:    #44475a;
-    --link-color:   #44478a;
-    --link-hover:   #7b62d4;
+    --link-color:   #58a6ff;
+    --link-hover:   #bd93f9;
     --nav-hover:    #bd93f9;
     --footer-filter: opacity(.6);
     --grid-alpha:   .06;
@@ -46,7 +46,7 @@
     --text-muted:   #2c2010;
     --h2-color:     #c45500;
     --h2p-color:    #1a5c8a;
-    --link-color:   #1a5c8a;
+    --link-color:   #1f72a8;
     --link-hover:   #c45500;
     --nav-hover:    #c45500;
     --footer-filter: opacity(.75) invert(1);
@@ -294,6 +294,16 @@ h2 {
     transition: color .35s;
 }
 
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #c4508a;
+    margin: 1.2rem 0 .4rem;
+    transition: color .35s;
+}
+
 .h2projects {
     font-family: 'Exo 2', sans-serif;
     font-size: 1.05rem;
@@ -343,6 +353,51 @@ h2 {
 
 .project ul li { margin: .3rem 0; }
 
+.formation-list {
+    list-style: none;
+    padding-left: 1.8rem;
+    margin: .3rem 0 0;
+}
+
+.formation-list .formation-list {
+    padding-left: 1.4rem;
+    margin: .2rem 0 0;
+}
+
+.p-hanging {
+    padding-left: 1.8em;
+    text-indent: -1.8em;
+}
+
+.diploma-sub {
+    font-size: .82em;
+    opacity: .75;
+    margin-bottom: 1em;
+    margin-top: 0;
+    
+}
+
+.project ul + p {
+    margin-top: .9rem;
+}
+
+.project ul + h3,
+.project p + h3 {
+    margin-top: 1.6rem;
+}
+
+.p-hanging + p {
+    margin-top: .8rem;
+}
+
+.tool-entry + .tool-entry {
+    margin-top: 1rem;
+}
+
+.tool-entry p + p {
+    margin-top: .3rem;
+}
+
 /* ══════════════════════════════════════════════════
    BADGES
 ══════════════════════════════════════════════════ */
@@ -377,9 +432,24 @@ h2 {
     border: 1px solid rgba(98, 114, 164, .3);
 }
 
+.badge-beta {
+    background: rgba(255, 184, 108, .12);
+    color: #ffb86c;
+    border: 1px solid rgba(255, 184, 108, .35);
+}
+
+[data-theme="light"] .badge-beta { color: #b06000; background: rgba(176,96,0,.10); border-color: rgba(176,96,0,.25); }
+
+.badge-deprecated {
+    background: rgba(255, 85, 85, .12);
+    color: #ff5555;
+    border: 1px solid rgba(255, 85, 85, .3);
+}
+
 [data-theme="light"] .badge-done  { color: #1a7a3a; background: rgba(26,122,58,.12); border-color: rgba(26,122,58,.3); }
 [data-theme="light"] .badge-progress { color: #b06000; background: rgba(176,96,0,.10); border-color: rgba(176,96,0,.3); }
 [data-theme="light"] .badge-goal { color: #4a5580; background: rgba(74,85,128,.10); border-color: rgba(74,85,128,.25); }
+[data-theme="light"] .badge-deprecated { color: #cc2222; background: rgba(204,34,34,.10); border-color: rgba(204,34,34,.25); }
 
 /* ══════════════════════════════════════════════════
    COMPÉTENCES / TAGS
@@ -462,7 +532,7 @@ h2 {
 .hyperlink {
     color: var(--link-color);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--link-color);
     transition: color .2s, border-color .2s;
 }
 

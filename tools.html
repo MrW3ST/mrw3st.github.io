@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MrW3ST">
+    <meta name="description" content="Outils OSINT développés par MrW3ST – OSMINT, PJINT, MAILGUESSINT et plus.">
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://mrw3st.github.io/tools.html">
+    <meta property="og:title"       content="Outils – MrW3ST">
+    <meta property="og:description" content="Outils OSINT développés par MrW3ST.">
+    <title>Outils – MrW3ST</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32">
+    <link rel="canonical" href="https://mrw3st.github.io/tools.html">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="hero">
+        <p class="hero-line">
+            <span class="hero-name">MrW3ST</span><span class="hero-sub" data-typewriter=" > Outils OSINT"></span>
+        </p>
+    </div>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">ACCUEIL</a>
+            <a href="tools.html" class="nav-active">OUTILS</a>
+            <!-- <a href="projects.html">PROJETS</a> -->
+            <a href="/en/index.html" class="picture_link" rel="noopener noreferrer">
+                <img src="assets/images/english.svg" title="Switch to English" alt="Drapeau anglais – version anglaise" class="icon-img">
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Basculer le thème clair / sombre">
+                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section>
+
+        <h1 class="openfw">Open for work in OSINT : <a href="mailto:mrw3st@pm.me">mrw3st@pm.me</a></h1>
+
+        <h2>Mes outils OSINT</h2>
+        <div class="project">
+            <p><strong>Bases en Python</strong>, mais surtout capable de tirer parti des outils disponibles pour concevoir et développer mes propres solutions selon les besoins du terrain.</p>
+        </div>
+
+        <div class="project">
+            <h2 class="h2projects">Marvin <span class="badge badge-beta">BETA</span><span class="badge badge-goal">privé</span></h2>
+            <h3>Ce que ça fait</h3>
+            <p>Bot Discord développé personnellement pour animer une communauté OSINT privée.</p>
+            <ul class="formation-list">
+                <li>– <strong>Challenges OSINT</strong> (simple ou multi-étapes) avec système de points et classement</li>
+                <li>– <strong>Question du jour</strong> automatisée avec classement et résultats</li>
+                <li>– Quiz, énigmes, calendrier des événements OSINT</li>
+                <li>– <strong>IA intégrée</strong>, de quoi rendre Marvin du <i>Guide du voyageur galactique</i> encore plus déprimé qu'il ne l'est déjà</li>
+            </ul>
+           
+            <h3>Pourquoi je l'ai fait</h3>
+            <p>Inspiré du bot Discord <strong>Rhinozilla</strong> d’<strong>Oscar-Zulu</strong>, j’ai voulu approfondir le sujet en créant ma propre version, pensée pour une <strong>communauté potentielle</strong>.</p>
+        </div>
+<br>
+        <div class="project">
+            <h2 class="h2projects">MAILGUESSINT <span class="badge badge-beta">BETA</span><span class="badge badge-goal">privé</span></h2>
+            <h3>Ce que ça fait</h3>
+            <ul class="formation-list">
+                <li>– Mix de <strong><a class="hyperlink" href="https://seintpl.github.io/NAMINT/" target="_blank" rel="noopener noreferrer">NAMINT</a></strong> et <strong><a class="hyperlink" href="https://github.com/megadose/holehe" target="_blank" rel="noopener noreferrer">Holehe</a></strong></li>
+                <li>– À partir d'un <strong>nom + prénom</strong>, génère les combinaisons d'adresses e-mail les plus probables</li>
+                <li>– Teste leur existence sur <strong>120+ services</strong> via Holehe (sans clé API) avec <strong>contrôle du rate limit</strong></li>
+                <li>– Contrôle les enregistrements <strong>MX/DNS</strong> du domaine</li>
+                <li>– Interroge <strong>HaveIBeenPwned</strong> pour les fuites de données (clé API requise)</li>
+                <li>– Enrichissement via <strong>Epieos</strong> (clé API requise)</li>
+                <li>– Produit un <strong>rapport</strong> consolidé des résultats</li>
+            </ul>
+            <h3>Pourquoi je l'ai fait</h3>
+            <p>Dans le cadre d’une <strong>enquête réelle</strong> sur un nom et prénom peu communs, cet outil a été conçu pour accélérer la recherche et identifier des adresses e-mail exploitables comme <strong>points de pivot</strong>.<br>Résultat : <strong>2 cas testés, 2 mails "devinés"</strong>.</p>
+        </div>
+<br>
+        <div class="project">
+            <h2 class="h2projects">SPORTINT <span class="badge badge-beta">BETA</span><span class="badge badge-goal">privé</span></h2>
+            <h3>Ce que ça fait</h3>
+            <ul class="formation-list">
+                <li>– Scrape les <strong>activités publiques</strong> de plateformes sportives (Komoot, Strava à venir)</li>
+                <li>– Extrait : type d'activité, date, <strong>coordonnées GPS</strong> (départ/arrivée), distance, durée</li>
+                <li>– Export <strong>CSV, JSON, GPX</strong> ou ZIP (CSV + GPX + GeoJSON + photos)</li>
+                <li>– Export dédié <strong><a class="hyperlink" href="https://zeroneurone.com/" target="_blank" rel="noopener noreferrer">ZeroNeurone</a></strong> : GeoJSON enrichi avec toutes les propriétés (type, date, distance, durée…) prises en compte nativement</li>
+                <li>– Permet de <strong>retracer les déplacements</strong> d'une cible depuis son profil public</li>
+            </ul>
+            <h3>Pourquoi je l'ai fait</h3>
+            <p>Créé dans le cadre d’une <strong>enquête réelle</strong>, ce travail s’appuyait sur un grand volume d’<strong>activités sportives publiques</strong>. L’exploitation de ces données et des <strong>points géographiques</strong> a été déterminante pour la suite de l’enquête, permettant d’identifier des <strong>habitudes</strong>, des <strong>lieux de résidence</strong> et d’autres <strong>pivots</strong>.</p>
+        </div>
+<br>
+        <div class="project">
+            <h2 class="h2projects"><a class="hyperlink" href="https://github.com/MrW3ST/OSMINT" target="_blank" rel="noopener noreferrer">OSMINT</a> <span class="badge badge-done">DISPONIBLE</span><span class="badge badge-beta">BETA</span></h2>
+            <h3>Ce que ça fait</h3>
+            <ul class="formation-list">
+                <li>– Génère des <strong>requêtes Overpass QL</strong> depuis un formulaire (ville + type de lieu)</li>
+                <li>– Sélection des champs à exporter : nom, <strong>téléphone</strong>, type, coordonnées</li>
+                <li>– Formats téléphone : brut, normalisé ou <strong>masqué</strong></li>
+                <li>– Export <strong>TXT, CSV ou JSON</strong></li>
+                <li>– Aperçu des 100 premiers résultats <strong>en temps réel</strong></li>
+            </ul>
+            <h3>Pourquoi je l'ai fait</h3>
+            <p>Dans la continuité de <strong>PJINT</strong>, j’ai créé cet outil pour générer des <strong>requêtes Overpass Turbo</strong> ainsi que faciliter l’extraction de <strong>numéros de téléphone</strong> et d’autres données via <strong>Overpass</strong>.</p>
+        </div>
+<br>
+        <div class="project">
+            <h2 class="h2projects"><a class="hyperlink" href="https://github.com/MrW3ST/PJINT" target="_blank" rel="noopener noreferrer">PJINT</a> <span class="badge badge-done">DISPONIBLE</span><span class="badge badge-beta">BETA</span></h2>
+            <h3>Ce que ça fait</h3>
+            <ul class="formation-list">
+                <li>– <strong>Interface web</strong> et <strong>CLI</strong> disponibles</li>
+                <li>– <strong>Scraping PagesJaunes.fr</strong> par ville + catégorie</li>
+                <li>– Extrait : nom, <strong>téléphone</strong>, adresse, catégorie</li>
+                <li>– Progression en temps réel, <strong>pause/reprise</strong>, historique des recherches</li>
+                <li>– <strong>Anti-détection</strong> : user-agent aléatoire, délais humains</li>
+                <li>– Groupes prédéfinis (restauration, santé, artisans…) pour <strong>multi-recherches</strong></li>
+                <li>– Export <strong>CSV, JSON, Excel ou TXT</strong></li>
+            </ul>
+            <h3>Pourquoi je l'ai fait</h3>
+            <p>Dans un <strong>challenge</strong> où l’objectif était d’identifier un <strong>numéro de téléphone</strong> dans une ville, j’ai profité de l’occasion pour développer cet outil et tester différentes approches.</p>
+        </div>
+<br>
+        <div class="project">
+            <h2 class="h2projects">PSEUDINT <span class="badge badge-done">DISPONIBLE</span><span class="badge badge-deprecated">DÉPRÉCIÉ</span></h2>
+            <h3>Ce que ça fait</h3>
+            <p>Recherche de pseudonyme sur plus de <strong>30 plateformes</strong> (réseaux sociaux, dev, gaming, streaming). <br>Cela reste très basique.</p>
+            <h3>Pourquoi déprécié</h3>
+            <p>Désormais assurée par un outil tiers plus complet proposé par Dégun sur <strong><a class="hyperlink" href="https://osintisnotacrime.com/app/" target="_blank" rel="noopener noreferrer">osintisnotacrime.com</a></strong>.</p>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <h2>Où me trouver ?</h2>
+    <a href="mailto:mrw3st@pm.me" class="picture_link" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/email-envelope-white-icon.svg" title="E-mail" alt="Icône e-mail" class="footer-img">
+    </a>
+    <a href="https://www.linkedin.com/in/mrw3st-osint/" class="picture_link" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/InBug-White.png" title="LinkedIn" alt="Icône LinkedIn" class="footer-img">
+    </a>
+    <a href="https://github.com/MrW3ST" class="picture_link" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/github-mark-white.svg" title="GitHub" alt="Icône GitHub" class="footer-img">
+    </a>
+    <button class="picture_link discord-copy" data-username=".mrw3st" data-copied="Copié !" aria-label="Copier le pseudo Discord .mrw3st">
+        <img src="assets/images/Discord-Symbol-White.svg" alt="Icône Discord" class="footer-img">
+    </button>
+    <p>© 2025 MrW3ST – Tous droits réservés.</p>
+</footer>
+
+<script src="/assets/js/effects.js" defer></script>
+</body>
+</html>

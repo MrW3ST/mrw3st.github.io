@@ -1,6 +1,6 @@
 # mrw3st.github.io
 
-Site portfolio personnel — Analyste OSINT en devenir.
+Site portfolio personnel — Analyste OSINT.
 
 🌐 [mrw3st.github.io](https://mrw3st.github.io)
 
@@ -10,11 +10,8 @@ Site portfolio personnel — Analyste OSINT en devenir.
 
 - Version **française** et **anglaise** (`/en/`)
 - Thème **sombre** (Dracula) / **clair** (Ambre) avec bascule animée, mémorisé en `localStorage`
-- Effet **typewriter** sur le titre et **fade-in** au scroll
-- Banner *Open for work* avec animation lumineuse
 - Icône Discord : affiche le pseudo au survol, **copie dans le presse-papier** au clic
 - Responsive mobile
-- CSS print pour export CV
 
 ---
 
