@@ -970,12 +970,12 @@ footer p {
 
 [data-theme="light"] .terminal-screen {
     background: #f5f0fd;
-    border-color: rgba(124, 58, 237, .4);
+    border-color: #7c3aed;
     box-shadow:
         0 0 0 13px #6b6c7a,
         0 0 0 18px #3e3f4a,
-        0 0 18px rgba(124, 58, 237, .2),
-        0 0 40px rgba(124, 58, 237, .08);
+        0 0 25px rgba(124, 58, 237, .8),
+        0 0 70px rgba(124, 58, 237, .4);
 }
 
 .terminal-screen .stepper {
