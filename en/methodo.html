@@ -14,9 +14,11 @@
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
     <link rel="canonical" href="https://mrw3st.github.io/en/methodo.html">
     <link rel="alternate" hreflang="fr" href="https://mrw3st.github.io/methodo.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        :root:not([data-theme="light"]) { --openfw-text: #ff79c6; --openfw-bg: rgba(255,121,198,.05); --openfw-border: #ff79c6; }
+        :root:not([data-theme="light"]) h1.openfw { animation: glow-pink 3s ease-in-out infinite; }
+    </style>
     <script src="/assets/js/theme.js"></script>
 </head>
 <body>
@@ -48,10 +50,7 @@
 
         <h1 class="openfw">Open for work in OSINT : <a href="mailto:mrw3st@pm.me">mrw3st@pm.me</a></h1>
 
-        <h2>Methodological approach</h2>
-        <div class="project">
-            <p>An <strong>OSINT</strong> investigation is never improvised. <br>Each step conditions the next, from <strong>defining the scope</strong> to the <strong>final report</strong>. <br><strong>Click</strong> on each step to discover the details.</p>
-        </div>
+        <div class="terminal-screen">
 
         <div class="stepper">
 
@@ -150,7 +149,10 @@
 
         </div>
 
-        <div class="stepper-panel" id="stepperPanel"></div>
+        <div id="stepperIntroText" hidden>> My <strong>OSINT</strong> methodology: a <strong>constant discipline</strong>, an approach <strong>adapted</strong> to each mission.<br>> An OSINT investigation is <strong>never improvised</strong>. Each step conditions the next, from <strong>defining the scope</strong> to the <strong>final report</strong>.</div>
+        <div class="stepper-panel" id="stepperPanel" data-next="NEXT >"></div>
+
+        </div><!-- /.terminal-screen -->
 
     </section>
 </main>

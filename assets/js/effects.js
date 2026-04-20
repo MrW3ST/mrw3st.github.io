@@ -100,11 +100,14 @@ function initStepper() {
         panel.innerHTML = '';
         var textEl = document.createElement('div');
         panel.appendChild(textEl);
-        activeSkip = typewriterHTML(textEl, '> Ma méthodologie <strong>OSINT</strong> : une <strong>discipline constante</strong>, une approche <strong>adaptée</strong> à chaque mission.<br>> Une enquête OSINT <strong>ne s\'improvise pas</strong>. Chaque étape conditionne la suivante, de la <strong>définition du périmètre</strong> jusqu\'à la <strong>restitution finale</strong>.', 22, function () {
+        var introEl = document.getElementById('stepperIntroText');
+        var introText = introEl ? introEl.innerHTML.trim() : '> Ma m&eacute;thodologie <strong>OSINT</strong> : une <strong>discipline constante</strong>, une approche <strong>adapt&eacute;e</strong> &agrave; chaque mission.<br>> Une enqu&ecirc;te OSINT <strong>ne s\'improvise pas</strong>. Chaque &eacute;tape conditionne la suivante, de la <strong>d&eacute;finition du p&eacute;rim&egrave;tre</strong> jusqu\'&agrave; la <strong>restitution finale</strong>.';
+        var nextLabel = panel.getAttribute('data-next') || 'SUIVANT >';
+        activeSkip = typewriterHTML(textEl, introText, 22, function () {
             activeSkip = null;
             var btn = document.createElement('button');
             btn.className = 'stepper-next stepper-next--intro';
-            btn.textContent = 'SUIVANT >';
+            btn.textContent = nextLabel;
             btn.addEventListener('click', function () {
                 steps[0].classList.remove('step-locked');
                 activateStep(0);
