@@ -28,9 +28,9 @@
     --card-accent:   #bd93f9;
     --card-hover:    #ff79c6;
 
-    --openfw-text:   #c084fc;
-    --openfw-bg:     rgba(192, 132, 252, .05);
-    --openfw-border: #c084fc;
+    --openfw-text:   #50fa7b;
+    --openfw-bg:     rgba(80, 250, 123, .05);
+    --openfw-border: #50fa7b;
 }
 
 /* ══════════════════════════════════════════════════
@@ -56,7 +56,7 @@
     --card-hover:    #c026d3;
 
     --openfw-text:   #ffffff;
-    --openfw-bg:     #7c3aed;
+    --openfw-bg:     rgba(124, 58, 237, .60);
     --openfw-border: #7c3aed;
 }
 
@@ -268,12 +268,12 @@ h1.openfw a:hover { text-decoration: underline; }
 
 @keyframes glow-green {
     0%, 100% {
-        box-shadow: 0 0 8px rgba(192, 132, 252, .3), 0 0 20px rgba(192, 132, 252, .15);
-        text-shadow: 0 0 8px rgba(192, 132, 252, .6), 0 0 20px rgba(192, 132, 252, .3);
+        box-shadow: 0 0 8px rgba(80, 250, 123, .3), 0 0 20px rgba(80, 250, 123, .15);
+        text-shadow: 0 0 8px rgba(80, 250, 123, .6), 0 0 20px rgba(80, 250, 123, .3);
     }
     50% {
-        box-shadow: 0 0 16px rgba(192, 132, 252, .6), 0 0 40px rgba(192, 132, 252, .3), 0 0 80px rgba(192, 132, 252, .1);
-        text-shadow: 0 0 10px rgba(192, 132, 252, .9), 0 0 30px rgba(192, 132, 252, .5), 0 0 60px rgba(192, 132, 252, .2);
+        box-shadow: 0 0 16px rgba(80, 250, 123, .6), 0 0 40px rgba(80, 250, 123, .3), 0 0 80px rgba(80, 250, 123, .1);
+        text-shadow: 0 0 10px rgba(80, 250, 123, .9), 0 0 30px rgba(80, 250, 123, .5), 0 0 60px rgba(80, 250, 123, .2);
     }
 }
 
