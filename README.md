@@ -9,7 +9,7 @@ Site portfolio personnel — Analyste OSINT.
 ## Fonctionnalités
 
 - Version **française** et **anglaise** (`/en/`)
-- Thème **sombre** (Dracula) / **clair** (Ambre) avec bascule animée, mémorisé en `localStorage`
+- Thème **sombre** (Dracula) / **clair** avec bascule animée, mémorisé en `localStorage`
 - Icône Discord : affiche le pseudo au survol, **copie dans le presse-papier** au clic
 - Responsive mobile
 
