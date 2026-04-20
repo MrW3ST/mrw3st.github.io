@@ -40,7 +40,7 @@ function typewriterHTML(el, html, speed, onDone) {
             el.innerHTML = withCursor(typed);
         } else {
             clearInterval(timer);
-            if (onDone) onDone();
+            if (onDone && document.contains(el)) onDone();
         }
     }, speed);
 }
@@ -72,7 +72,31 @@ function initStepper() {
     var panel = document.getElementById('stepperPanel');
     if (!steps.length || !panel) return;
 
+    var currentIdx = -1;
+
+    // Tous les cercles verrouillés au départ
+    steps.forEach(function (s) { s.classList.add('step-locked'); });
+
+    function showIntro() {
+        currentIdx = -1;
+        steps.forEach(function (s) { s.classList.remove('active', 'done'); });
+        panel.innerHTML = '';
+        var textEl = document.createElement('div');
+        panel.appendChild(textEl);
+        typewriterHTML(textEl, '> Ma méthodologie <strong>OSINT</strong> : une <strong>discipline constante</strong>, une approche <strong>adaptée</strong> à chaque mission.<br>> Une enquête OSINT <strong>ne s\'improvise pas</strong>. Chaque étape conditionne la suivante, de la <strong>définition du périmètre</strong> jusqu\'à la <strong>restitution finale</strong>.', 22, function () {
+            var btn = document.createElement('button');
+            btn.className = 'stepper-next stepper-next--intro';
+            btn.textContent = 'SUIVANT >';
+            btn.addEventListener('click', function () {
+                steps[0].classList.remove('step-locked');
+                activateStep(0);
+            });
+            panel.appendChild(btn);
+        });
+    }
+
     function activateStep(idx) {
+        currentIdx = idx;
         steps.forEach(function (s, i) {
             s.classList.remove('active', 'done');
             if (i < idx) s.classList.add('done');
@@ -86,29 +110,66 @@ function initStepper() {
         var textEl = document.createElement('div');
         panel.appendChild(textEl);
 
-        panel.classList.add('visible');
         typewriterHTML(textEl, content, 14, function () {
+            var nav = document.createElement('div');
+            nav.className = 'stepper-nav';
+
+            var prevBtn = document.createElement('button');
+            prevBtn.className = 'stepper-next';
+            prevBtn.innerHTML = '&lt;';
+            prevBtn.addEventListener('click', function () {
+                if (idx > 0) activateStep(idx - 1); else showIntro();
+            });
+            nav.appendChild(prevBtn);
+
             if (idx < steps.length - 1) {
-                var btn = document.createElement('button');
-                btn.className = 'stepper-next';
-                btn.innerHTML = '&gt;';
-                btn.addEventListener('click', function () { activateStep(idx + 1); });
-                panel.appendChild(btn);
+                var nextBtn = document.createElement('button');
+                nextBtn.className = 'stepper-next';
+                nextBtn.innerHTML = '&gt;';
+                nextBtn.addEventListener('click', function () {
+                    steps[idx + 1].classList.remove('step-locked');
+                    activateStep(idx + 1);
+                });
+                nav.appendChild(nextBtn);
             }
+
+            panel.appendChild(nav);
         });
     }
 
     steps.forEach(function (step) {
         step.addEventListener('click', function () {
+            if (step.classList.contains('step-locked')) return;
             var idx = parseInt(step.getAttribute('data-step')) - 1;
             if (step.classList.contains('active')) {
-                steps.forEach(function (s) { s.classList.remove('active', 'done'); });
-                panel.classList.remove('visible');
+                showIntro();
             } else {
                 activateStep(idx);
             }
         });
     });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') {
+            if (currentIdx === -1) {
+                steps[0].classList.remove('step-locked');
+                activateStep(0);
+            } else if (currentIdx < steps.length - 1 && !steps[currentIdx + 1].classList.contains('step-locked')) {
+                activateStep(currentIdx + 1);
+            } else if (currentIdx < steps.length - 1) {
+                steps[currentIdx + 1].classList.remove('step-locked');
+                activateStep(currentIdx + 1);
+            }
+        } else if (e.key === 'ArrowLeft') {
+            if (currentIdx === 0) {
+                showIntro();
+            } else if (currentIdx > 0) {
+                activateStep(currentIdx - 1);
+            }
+        }
+    });
+
+    showIntro();
 }
 
 /* ── Init ───────────────────────────────────────── */

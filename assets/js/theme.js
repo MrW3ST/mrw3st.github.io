@@ -1,8 +1,10 @@
 // Anti-FOUC : applique le thème sauvegardé avant tout rendu
 (function () {
-    if (localStorage.getItem('theme') === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-    }
+    try {
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    } catch (e) {}
 }());
 
 // Branche le bouton après chargement du DOM
@@ -14,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var isLight = document.documentElement.getAttribute('data-theme') === 'light';
         if (isLight) {
             document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'dark');
+            try { localStorage.setItem('theme', 'dark'); } catch (e) {}
         } else {
             document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
+            try { localStorage.setItem('theme', 'light'); } catch (e) {}
         }
     });
 });

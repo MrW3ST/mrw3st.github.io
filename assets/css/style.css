@@ -249,6 +249,17 @@ nav a.nav-active {
 /* ══════════════════════════════════════════════════
    OPEN FOR WORK
 ══════════════════════════════════════════════════ */
+@keyframes glow-pink {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(255, 121, 198, .3), 0 0 20px rgba(255, 121, 198, .15);
+        text-shadow: 0 0 8px rgba(255, 121, 198, .6), 0 0 20px rgba(255, 121, 198, .3);
+    }
+    50% {
+        box-shadow: 0 0 16px rgba(255, 121, 198, .6), 0 0 40px rgba(255, 121, 198, .3), 0 0 80px rgba(255, 121, 198, .1);
+        text-shadow: 0 0 10px rgba(255, 121, 198, .9), 0 0 30px rgba(255, 121, 198, .5), 0 0 60px rgba(255, 121, 198, .2);
+    }
+}
+
 h1.openfw {
     font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
@@ -735,17 +746,26 @@ footer p {
     overflow: hidden;
     opacity: 0;
     transition: max-height .4s ease, opacity .2s ease, padding .4s ease;
-    background: var(--bg);
+    background: 0;
     border: 1px solid #50fa7b;
     border-radius: 6px;
     padding: 0 1.8rem;
     margin-top: 0;
-    box-shadow: 0 0 18px rgba(80, 250, 123, .2), inset 0 0 40px rgba(0,0,0,.6);
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow:
+        0 0 0 13px #44475a,
+        0 0 0 18px #21222c,
+        0 0 28px rgba(80, 250, 123, .35),
+        0 0 60px rgba(80, 250, 123, .15),
+        inset 0 0 40px rgba(0,0,0,.6);
     font-family: 'IBM Plex Mono', 'Courier New', monospace;
 }
 
 .stepper-panel.visible {
-    max-height: 500px;
+    max-height: 420px;
+    height: 420px;
+    overflow-y: auto;
     opacity: 1;
     padding: 1.4rem 1.8rem 1.8rem;
     margin-top: .5rem;
@@ -808,8 +828,13 @@ footer p {
 [data-theme="light"] .stepper-panel {
     background: #f9fdf9;
     border-color: rgba(0, 180, 50, .35);
-    box-shadow: 0 0 18px rgba(80, 250, 123, .3), 0 0 40px rgba(80, 250, 123, .12);
+    box-shadow:
+        0 0 0 13px #6b6c7a,
+        0 0 0 18px #3e3f4a,
+        0 0 18px rgba(80, 250, 123, .3),
+        0 0 40px rgba(80, 250, 123, .12);
 }
+
 
 [data-theme="light"] .stepper-panel-title {
     color: #007a20;
@@ -884,43 +909,178 @@ footer p {
 }
 
 [data-theme="light"] .step-circle {
-    border-color: rgba(0, 122, 32, .3);
-    color: rgba(0, 122, 32, .5);
+    border-color: rgba(124, 58, 237, .3);
+    color: rgba(124, 58, 237, .5);
 }
 
 [data-theme="light"] .step.active .step-circle {
-    border-color: #007a20;
-    color: #007a20;
+    border-color: #7c3aed;
+    color: #7c3aed;
     background: var(--bg);
-    box-shadow: 0 0 14px rgba(0, 122, 32, .25);
+    box-shadow: 0 0 14px rgba(124, 58, 237, .25);
 }
 
 [data-theme="light"] .step.active .step-title {
-    color: #007a20;
+    color: #7c3aed;
 }
 
 [data-theme="light"] .step:not(:last-child)::after {
-    background: rgba(0, 122, 32, .2);
+    background: rgba(124, 58, 237, .2);
 }
 
 [data-theme="light"] .step.done::after {
-    background: rgba(0, 122, 32, .4);
+    background: rgba(124, 58, 237, .4);
 }
 
 [data-theme="light"] .step.done .step-circle {
-    border-color: rgba(0, 122, 32, .5);
-    color: rgba(0, 122, 32, .5);
+    border-color: rgba(124, 58, 237, .5);
+    color: rgba(124, 58, 237, .5);
     background: var(--bg);
+}
+
+/* ══════════════════════════════════════════════════
+   TERMINAL SCREEN (frise + panel dans un seul écran)
+══════════════════════════════════════════════════ */
+.terminal-screen {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    border: 1px solid #50fa7b;
+    border-radius: 6px;
+    margin: 4rem 10px 0;
+    box-shadow:
+        0 0 0 13px #44475a,
+        0 0 0 18px #21222c,
+        0 0 28px rgba(80, 250, 123, .35),
+        0 0 60px rgba(80, 250, 123, .15),
+        inset 0 0 40px rgba(0,0,0,.6);
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    animation: screen-on .55s ease forwards;
+    overflow: hidden;
+}
+
+[data-theme="light"] .terminal-screen {
+    background: #f5f0fd;
+    border-color: rgba(0, 180, 50, .35);
+    box-shadow:
+        0 0 0 13px #6b6c7a,
+        0 0 0 18px #3e3f4a,
+        0 0 18px rgba(80, 250, 123, .3),
+        0 0 40px rgba(80, 250, 123, .12);
+}
+
+.terminal-screen .stepper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid rgba(80, 250, 123, .2);
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .terminal-screen .stepper {
+    border-bottom-color: rgba(124, 58, 237, .2);
+}
+
+.terminal-screen .step {
+    max-width: none;
+    flex: 1;
+    transition: opacity .4s ease, transform .4s ease;
+}
+
+.terminal-screen .step-body { display: none; }
+
+.terminal-screen .step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: .8rem;
+}
+
+.terminal-screen .step:not(:last-child)::after { top: 18px; }
+
+/* Panel toujours visible, remplit l'espace restant */
+.terminal-screen .stepper-panel,
+.terminal-screen .stepper-panel.visible {
+    flex: 1;
+    max-height: none;
+    height: auto;
+    overflow-y: auto;
+    opacity: 1;
+    padding: 1.2rem 1.8rem 1.4rem;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    animation: none;
+    transition: none;
+}
+
+/* Cercles verrouillés — révélés progressivement */
+.step-locked {
+    opacity: 0;
+    transform: scale(.5);
+    pointer-events: none;
+}
+
+/* Conteneur boutons nav < > */
+.stepper-nav {
+    display: flex;
+    gap: .8rem;
+    margin-top: 1.2rem;
+}
+
+.stepper-nav .stepper-next { margin-top: 0; }
+
+/* Bouton intro terminal */
+.stepper-next--intro {
+    display: block;
+    font-size: .85rem;
+    letter-spacing: .1em;
+    border: 1px solid rgba(80, 250, 123, .45);
+    border-radius: 4px;
+    padding: .35rem .85rem;
+    margin-top: 1.6rem;
+    opacity: 1;
+}
+
+.stepper-next--intro:hover {
+    background: rgba(80, 250, 123, .08);
+    transform: none;
+}
+
+[data-theme="light"] .stepper-next--intro {
+    border-color: rgba(0, 122, 32, .4);
+}
+
+[data-theme="light"] .stepper-next--intro:hover {
+    background: rgba(0, 122, 32, .08);
 }
 
 /* Responsive */
 @media (max-width: 640px) {
-    .stepper {
-        flex-direction: column;
-        gap: .5rem;
+    .terminal-screen {
+        height: 460px;
+        margin: 1rem 4px 0;
     }
-    .step-connector { display: none; }
-    .step-body { text-align: left; padding: .5rem 0 0; }
+    .terminal-screen .stepper {
+        padding: .5rem 1rem;
+    }
+    .terminal-screen .step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: .72rem;
+    }
+    .terminal-screen .step:not(:last-child)::after { top: 15px; }
+    .terminal-screen .stepper-panel,
+    .terminal-screen .stepper-panel.visible {
+        padding: .9rem 1rem 1.2rem;
+    }
+    .terminal-screen .stepper-panel-title { font-size: .85rem; }
+    .terminal-screen .stepper-panel li,
+    .terminal-screen .stepper-panel p,
+    .terminal-screen .stepper-panel div { font-size: .88rem; }
 }
 
 .discord-copy.copied::after {

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <meta name="author" content="MrW3ST">
     <meta name="description" content="Méthodologie OSINT de MrW3ST – collecte, recoupement, analyse et restitution.">
     <meta property="og:type"        content="website">
@@ -16,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        :root:not([data-theme="light"]) { --openfw-text: #ff79c6; --openfw-bg: rgba(255,121,198,.05); --openfw-border: #ff79c6; }
+        :root:not([data-theme="light"]) h1.openfw { animation: glow-pink 3s ease-in-out infinite; }
+    </style>
     <script src="/assets/js/theme.js"></script>
 </head>
 <body>
@@ -47,10 +52,7 @@
 
         <h1 class="openfw">Open for work in OSINT : <a href="mailto:mrw3st@pm.me">mrw3st@pm.me</a></h1>
 
-        <h2>Approche méthodologique</h2>
-        <div class="project">
-            <p>Une enquête <strong>OSINT</strong> ne s'improvise pas. <br>Chaque étape conditionne la suivante, de la <strong>définition du périmètre</strong> jusqu'à la <strong>restitution finale</strong>. <br><strong>Cliquez</strong> sur chaque étape pour en découvrir le détail.</p>
-        </div>
+        <div class="terminal-screen">
 
         <div class="stepper">
 
@@ -150,6 +152,8 @@
         </div>
 
         <div class="stepper-panel" id="stepperPanel"></div>
+
+        </div><!-- /.terminal-screen -->
 
     </section>
 </main>
