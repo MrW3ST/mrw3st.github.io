@@ -27,6 +27,12 @@ function typewriterHTML(el, html, speed, onDone) {
         return str + cursorHTML;
     }
 
+    function skip() {
+        clearInterval(timer);
+        el.innerHTML = html;
+        if (onDone && document.contains(el)) onDone();
+    }
+
     var timer = setInterval(function () {
         if (i < html.length) {
             if (html[i] === '<') {
@@ -40,9 +46,12 @@ function typewriterHTML(el, html, speed, onDone) {
             el.innerHTML = withCursor(typed);
         } else {
             clearInterval(timer);
+            el.innerHTML = html;
             if (onDone && document.contains(el)) onDone();
         }
     }, speed);
+
+    return skip;
 }
 
 /* ── Fade-in au scroll ──────────────────────────── */
@@ -73,9 +82,17 @@ function initStepper() {
     if (!steps.length || !panel) return;
 
     var currentIdx = -1;
+    var activeSkip = null;
 
     // Tous les cercles verrouillés au départ
     steps.forEach(function (s) { s.classList.add('step-locked'); });
+
+    panel.addEventListener('click', function (e) {
+        if (activeSkip && e.target.tagName !== 'BUTTON') {
+            activeSkip();
+            activeSkip = null;
+        }
+    });
 
     function showIntro() {
         currentIdx = -1;
@@ -83,7 +100,8 @@ function initStepper() {
         panel.innerHTML = '';
         var textEl = document.createElement('div');
         panel.appendChild(textEl);
-        typewriterHTML(textEl, '> Ma méthodologie <strong>OSINT</strong> : une <strong>discipline constante</strong>, une approche <strong>adaptée</strong> à chaque mission.<br>> Une enquête OSINT <strong>ne s\'improvise pas</strong>. Chaque étape conditionne la suivante, de la <strong>définition du périmètre</strong> jusqu\'à la <strong>restitution finale</strong>.', 22, function () {
+        activeSkip = typewriterHTML(textEl, '> Ma méthodologie <strong>OSINT</strong> : une <strong>discipline constante</strong>, une approche <strong>adaptée</strong> à chaque mission.<br>> Une enquête OSINT <strong>ne s\'improvise pas</strong>. Chaque étape conditionne la suivante, de la <strong>définition du périmètre</strong> jusqu\'à la <strong>restitution finale</strong>.', 22, function () {
+            activeSkip = null;
             var btn = document.createElement('button');
             btn.className = 'stepper-next stepper-next--intro';
             btn.textContent = 'SUIVANT >';
@@ -110,7 +128,8 @@ function initStepper() {
         var textEl = document.createElement('div');
         panel.appendChild(textEl);
 
-        typewriterHTML(textEl, content, 14, function () {
+        activeSkip = typewriterHTML(textEl, content, 14, function () {
+            activeSkip = null;
             var nav = document.createElement('div');
             nav.className = 'stepper-nav';
 
